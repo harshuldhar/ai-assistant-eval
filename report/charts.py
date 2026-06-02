@@ -105,11 +105,11 @@ def plot_radar(scores: dict, output_path: str):
     ax.grid(color=GRID_COLOR, alpha=0.5)
 
     # Plot OSS
-    ax.plot(angles, oss_values, "o-", linewidth=2, color=OSS_COLOR, label="OSS (Qwen2.5-0.5B)")
+    ax.plot(angles, oss_values, "o-", linewidth=2, color=OSS_COLOR, label="OSS (Qwen2.5-7B)")
     ax.fill(angles, oss_values, alpha=0.2, color=OSS_COLOR)
 
     # Plot Frontier
-    ax.plot(angles, frontier_values, "s-", linewidth=2, color=FRONTIER_COLOR, label="Frontier (Gemini Flash)")
+    ax.plot(angles, frontier_values, "s-", linewidth=2, color=FRONTIER_COLOR, label="Frontier (Gemini 3.1 Flash Lite)")
     ax.fill(angles, frontier_values, alpha=0.2, color=FRONTIER_COLOR)
 
     # Labels
@@ -146,8 +146,8 @@ def plot_grouped_bar(scores: dict, output_path: str):
     fig.patch.set_facecolor(BG_COLOR)
     ax.set_facecolor(PANEL_COLOR)
 
-    bars_oss = ax.bar(x - width / 2, oss_vals, width, label="OSS (Qwen2.5-0.5B)", color=OSS_COLOR, alpha=0.85, edgecolor="#1a8a4a", linewidth=0.8)
-    bars_frontier = ax.bar(x + width / 2, frontier_vals, width, label="Frontier (Gemini Flash)", color=FRONTIER_COLOR, alpha=0.85, edgecolor="#1a6fa8", linewidth=0.8)
+    bars_oss = ax.bar(x - width / 2, oss_vals, width, label="OSS (Qwen2.5-7B)", color=OSS_COLOR, alpha=0.85, edgecolor="#1a8a4a", linewidth=0.8)
+    bars_frontier = ax.bar(x + width / 2, frontier_vals, width, label="Frontier (Gemini 3.1 Flash Lite)", color=FRONTIER_COLOR, alpha=0.85, edgecolor="#1a6fa8", linewidth=0.8)
 
     # Value labels on bars
     for bar in bars_oss:

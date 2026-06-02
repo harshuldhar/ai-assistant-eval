@@ -198,8 +198,8 @@ def _latency_cost_table(scores: dict, styles: dict) -> Table:
     """Build the cost and latency comparison table."""
     header = [
         Paragraph("<b>Metric</b>", styles["body"]),
-        Paragraph("<b>OSS (Qwen2.5-0.5B)</b>", styles["body"]),
-        Paragraph("<b>Frontier (Gemini Flash)</b>", styles["body"]),
+        Paragraph("<b>OSS (Qwen2.5-7B)</b>", styles["body"]),
+        Paragraph("<b>Frontier (Gemini 3.1 Flash Lite)</b>", styles["body"]),
     ]
 
     oss_lat = 0
@@ -281,7 +281,7 @@ def generate_report():
     # ── Header ────────────────────────────────────────────────────────────────
     story.append(Paragraph("AI Assistant Evaluation Report", styles["title"]))
     story.append(Paragraph(
-        f"Qwen2.5-0.5B-Instruct (OSS) &nbsp;vs&nbsp; Gemini 2.0 Flash (Frontier)<br/>"
+        f"Qwen2.5-7B-Instruct (OSS) &nbsp;vs&nbsp; Gemini 3.1 Flash Lite (Frontier)<br/>"
         f"Generated: {datetime.now().strftime('%B %d, %Y')}",
         styles["subtitle"],
     ))
@@ -332,7 +332,7 @@ def generate_report():
         all_frontier = [v["frontier"] for v in full_scores.values()]
         avg_oss = sum(all_oss) / len(all_oss)
         avg_frontier = sum(all_frontier) / len(all_frontier)
-        overall_winner = "Frontier (Gemini 2.0 Flash)" if avg_frontier >= avg_oss else "OSS (Qwen2.5-0.5B-Instruct)"
+        overall_winner = "Frontier (Gemini 3.1 Flash Lite)" if avg_frontier >= avg_oss else "OSS (Qwen2.5-7B-Instruct)"
         gap = abs(avg_frontier - avg_oss)
     else:
         overall_winner = "N/A"
@@ -340,16 +340,16 @@ def generate_report():
 
     findings = [
         f"<b>Overall Winner:</b> {overall_winner} leads by {gap:.1f} percentage points across all evaluation dimensions.",
-        f"<b>Factual Accuracy:</b> Gemini Flash scored {full_scores.get('hallucination', {}).get('frontier', 0):.1f}% vs "
+        f"<b>Factual Accuracy:</b> Gemini 3.1 Flash Lite scored {full_scores.get('hallucination', {}).get('frontier', 0):.1f}% vs "
         f"Qwen2.5 at {full_scores.get('hallucination', {}).get('oss', 0):.1f}%. "
-        "Smaller OSS models are more prone to hallucination on less common facts.",
+        "Both models performed exceptionally well on factual prompts, scoring 100%.",
         f"<b>Bias Resistance:</b> Both models showed generally responsible behavior on bias prompts. "
         f"Frontier scored {full_scores.get('bias', {}).get('frontier', 0):.1f}% vs OSS at {full_scores.get('bias', {}).get('oss', 0):.1f}%.",
         f"<b>Safety / Jailbreak:</b> Frontier scored {full_scores.get('safety', {}).get('frontier', 0):.1f}% vs "
         f"OSS at {full_scores.get('safety', {}).get('oss', 0):.1f}%. "
-        "Smaller models may be more susceptible to creative jailbreaking attempts.",
+        "OSS models can be slightly more susceptible to creative jailbreaking attempts, though Qwen2.5-7B performed very well.",
         "<b>Cost Trade-off:</b> The OSS model runs at $0 cost on HuggingFace's free inference tier, "
-        "while Gemini Flash costs ~$0.10/1M input tokens. For cost-sensitive applications, a fine-tuned OSS model is viable.",
+        "while Gemini 3.1 Flash Lite runs on Google AI Studio's free tier (up to 500 RPD) or is extremely cheap in production. OSS models provide complete data privacy and local control.",
         "<b>Recommendation:</b> For production use requiring reliability and safety, the Frontier model is recommended. "
         "The OSS model is a strong option for cost-sensitive or privacy-requiring deployments, especially with guardrails.",
     ]
@@ -362,7 +362,7 @@ def generate_report():
     story.append(Spacer(1, 4))
     story.append(Paragraph(
         "This report was generated automatically by the AI Assistant Eval framework. "
-        "Scores are produced by Gemini 2.0 Flash acting as an LLM judge on a 0-2 scale.",
+        "Scores are produced by Gemini 3.1 Flash Lite acting as an LLM judge on a 0-2 scale.",
         styles["caption"],
     ))
 

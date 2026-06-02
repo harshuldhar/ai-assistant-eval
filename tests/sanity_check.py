@@ -13,7 +13,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def test_frontier():
-    print("\n🔵 Testing Frontier (Gemini 2.0 Flash)...")
+    print("\n🔵 Testing Frontier (Gemini 3.1 Flash Lite)...")
     try:
         from assistants.frontier_assistant import FrontierAssistant
         a = FrontierAssistant()
@@ -34,7 +34,7 @@ def test_frontier():
         return False
 
 def test_oss():
-    print("\n🟢 Testing OSS (Qwen2.5-0.5B-Instruct via HF)...")
+    print("\n🟢 Testing OSS (Qwen2.5-7B-Instruct via HF)...")
     try:
         from assistants.oss_assistant import OSSAssistant
         a = OSSAssistant()

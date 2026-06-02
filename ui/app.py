@@ -192,7 +192,7 @@ with tab_chat:
 
         if show_oss:
             with col1:
-                st.markdown('<div class="oss-header">🟢 OSS — Qwen2.5-0.5B-Instruct</div>', unsafe_allow_html=True)
+                st.markdown('<div class="oss-header">🟢 OSS — Qwen2.5-7B-Instruct</div>', unsafe_allow_html=True)
                 chat_container_oss = st.container(height=460)
                 with chat_container_oss:
                     if not oss_assistant.history:
@@ -203,7 +203,7 @@ with tab_chat:
 
         if show_frontier:
             with col2:
-                st.markdown('<div class="frontier-header">🔵 Frontier — Gemini 2.0 Flash</div>', unsafe_allow_html=True)
+                st.markdown('<div class="frontier-header">🔵 Frontier — Gemini 3.1 Flash Lite</div>', unsafe_allow_html=True)
                 chat_container_frontier = st.container(height=460)
                 with chat_container_frontier:
                     if not frontier_assistant.history:
@@ -284,7 +284,7 @@ This will generate results in `evaluation/results/` and populate this dashboard.
         """)
     else:
         st.markdown("## 📊 Evaluation Results")
-        st.markdown("Comparing **Qwen2.5-0.5B-Instruct** (OSS) vs **Gemini 2.0 Flash** (Frontier)")
+        st.markdown("Comparing **Qwen2.5-7B-Instruct** (OSS) vs **Gemini 3.1 Flash Lite** (Frontier)")
         st.markdown("---")
 
         category_config = {

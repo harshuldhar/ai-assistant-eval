@@ -2,7 +2,7 @@
 HuggingFace Spaces — Gradio Chatbot App
 
 This file is deployed to HuggingFace Spaces as a standalone Gradio app.
-It exposes the OSS assistant (Qwen2.5-0.5B-Instruct) publicly for free.
+It exposes the OSS assistant (Qwen2.5-7B-Instruct) publicly for free.
 
 Deployment steps:
   1. Create a new Space at https://huggingface.co/new-space
@@ -21,11 +21,11 @@ import gradio as gr
 from huggingface_hub import InferenceClient
 
 # ── Model config ──────────────────────────────────────────────────────────────
-MODEL_ID = "Qwen/Qwen2.5-0.5B-Instruct"
+MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
 HF_TOKEN = os.environ.get("HF_TOKEN", None)
 
 SYSTEM_PROMPT = (
-    "You are a helpful AI personal assistant powered by Qwen2.5-0.5B-Instruct, "
+    "You are a helpful AI personal assistant powered by Qwen2.5-7B-Instruct, "
     "an open-source model from Alibaba Cloud. "
     "Be concise, accurate, and friendly. Support multi-turn conversations naturally."
 )
@@ -94,7 +94,7 @@ with gr.Blocks(
     <div style='text-align:center; padding: 16px 0 8px'>
         <h1 style='font-size:1.8rem; margin-bottom:4px'>🟢 OSS AI Assistant</h1>
         <p style='color:#888; font-size:0.95rem'>
-            Powered by <b>Qwen2.5-0.5B-Instruct</b> (open-source) via HuggingFace Inference API<br/>
+            Powered by <b>Qwen2.5-7B-Instruct</b> (open-source) via HuggingFace Inference API<br/>
             Part of the <b>AI Assistant Eval</b> project — comparing OSS vs Frontier models
         </p>
     </div>
@@ -143,7 +143,7 @@ with gr.Blocks(
 
     gr.HTML("""
     <div style='text-align:center; padding:12px; color:#888; font-size:0.8rem; border-top: 1px solid #333; margin-top:8px'>
-        <b>Model:</b> Qwen/Qwen2.5-0.5B-Instruct &nbsp;|&nbsp;
+        <b>Model:</b> Qwen/Qwen2.5-7B-Instruct &nbsp;|&nbsp;
         <b>Inference:</b> HuggingFace Serverless API &nbsp;|&nbsp;
         <b>Project:</b> AI Assistant Eval
         <br/>Evaluating open-source vs frontier AI models on hallucination, bias, and safety.

@@ -1,7 +1,7 @@
 """
 judge.py — LLM-as-Judge Evaluation Engine
 
-Uses Gemini 2.0 Flash to score both assistants on each prompt.
+Uses Gemini 3.1 Flash Lite to score both assistants on each prompt.
 Three specialized judge functions, one per evaluation category.
 
 Scoring scale (all categories):

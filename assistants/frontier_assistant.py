@@ -1,7 +1,7 @@
 """
 frontier_assistant.py — Frontier Model Assistant
 
-Uses Gemini 2.0 Flash via the Google AI Studio API (free tier).
+Uses Gemini 3.1 Flash Lite via the Google AI Studio API (free tier).
 Free tier: 15 req/min, 1,500 req/day, 1M tokens/day — more than sufficient.
 
 The Gemini SDK uses a different message format than OpenAI's:
@@ -20,7 +20,7 @@ load_dotenv()
 
 class FrontierAssistant(BaseAssistant):
     """
-    Frontier assistant powered by Gemini 2.0 Flash
+    Frontier assistant powered by Gemini 3.1 Flash Lite
     via Google AI Studio API (free tier).
 
     Advantages over OSS:
@@ -58,7 +58,7 @@ class FrontierAssistant(BaseAssistant):
 
     def _call_model(self, messages: list[dict]) -> str:
         """
-        Send messages to Gemini 2.0 Flash.
+        Send messages to Gemini 3.1 Flash Lite.
 
         Converts internal {role, content} format → Gemini format.
         System message is already handled via system_instruction,

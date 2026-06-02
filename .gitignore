@@ -13,7 +13,6 @@ env/
 .Python
 
 # Project-specific generated files
-evaluation/results/
 logs/
 report/output/
 
