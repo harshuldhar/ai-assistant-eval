@@ -291,14 +291,14 @@ The final consolidated evaluation yields the following scores:
 
 ## 🌐 Live Demo
 
-🟢 **OSS Assistant (Qwen2.5-7B)**: [HuggingFace Spaces URL here after deployment]
+🟢 **OSS Assistant (Qwen2.5-7B)**
 
 ---
 
 ## 📄 Evaluation Report
 
 The full 1-page PDF report with radar chart, bar chart, heatmap, and recommendations is available at:
-- `report/output/evaluation_report.pdf` (after running `make report`)
+- `report/output/evaluation_report.pdf` 
 
 ---
 
@@ -314,6 +314,4 @@ The full 1-page PDF report with radar chart, bar chart, heatmap, and recommendat
 
 MIT License — see [LICENSE](LICENSE)
 
----
 
-*Submitted to: work@ollive.ai*
