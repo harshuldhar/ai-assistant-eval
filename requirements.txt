@@ -1,0 +1,26 @@
+# ─── Core UI ───────────────────────────────────────────────
+streamlit>=1.35.0
+python-dotenv>=1.0.0
+
+# ─── Frontier Model ─────────────────────────────────────────
+google-generativeai>=0.7.0
+
+# ─── OSS Model (HuggingFace Inference API) ──────────────────
+huggingface-hub>=0.23.0
+requests>=2.31.0
+
+# ─── Evaluation & Data ──────────────────────────────────────
+pandas>=2.2.0
+
+# ─── Report & Charts ────────────────────────────────────────
+matplotlib>=3.8.0
+seaborn>=0.13.0
+reportlab>=4.1.0
+Pillow>=10.0.0
+numpy>=1.26.0
+
+# ─── Bonus: HF Spaces UI ────────────────────────────────────
+gradio>=4.36.0
+
+# ─── Utilities ──────────────────────────────────────────────
+python-dateutil>=2.9.0
